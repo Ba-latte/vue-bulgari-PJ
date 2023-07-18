@@ -1,0 +1,748 @@
+@charset "utf-8";
+
+/* 불가리 PJ 공통 모듈 CSS - common.css */
+
+
+/* 공통 변수 선언 */
+:root {
+	--bg_black: #1f1f1f;
+    --bg_beige: #f0ede8;
+    --beige: #f7f7f7;
+    --black: #000;
+    --white: #fff;
+    --silver: #c0c0c0;
+    --green: #008000;
+    --red: #ff0000;
+    --gray: #6e6b68;
+    --swiper-theme-color: #1f1f1f;
+}
+
+
+/******************************************* 상단 영역 시작 *******************************************/
+/* 상단 영역 공통 세팅 */
+#top{
+    position: relative;
+    /* 부모자격 - lnb박스 */
+    box-shadow: inset 0px -0.8px 0px 0px var(--silver);
+}
+/* 상단 블록, 픽스드 겉박스 */
+#dt_wrap{
+    height: 150px;
+}
+
+/* 상단 탑메뉴 */
+.dt .tmenu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+/* 상단 좌/우 메뉴 공통 세팅 */
+.dt .lmenu>.list, .dt .rmenu>.list{
+    display: flex;
+    
+}
+/* 상단 좌/우 메뉴 하위 a요소들 공통 세팅 */
+.dt .tmenu .htl{
+    display: flex;
+    padding-right: 10px;
+    align-items: center;
+}
+
+/* 상단 좌/우 메뉴의 하위 메뉴텍스트 공통 세팅 */
+.dt .tmenu .menu_txt{
+    font-size: 12px;
+}
+/* 상단 좌/우 메뉴의 li에 마우스오버시 하위 메뉴텍스트에 아랫줄 만들기 */
+.dt .lmenu li:hover .menu_txt, .dt .rmenu li:hover .menu_txt{
+    text-decoration: underline;
+}
+
+/* 상단영역의 로고 svg 세팅 */
+.dt .svgBx{
+    width: 350px;
+    margin: 15px auto;
+    cursor: pointer;
+}
+
+/* GNB메뉴 */
+.dt .gnb>.list{
+    display: flex;
+    justify-content: center;
+}
+/* GNB메뉴 하위 li들 공통 세팅 */
+.dt .gnb>.list>li{
+    padding: 0 15px 10px;
+}
+/* GNB메뉴 하위 li들 공통 가상요소 세팅 */
+.dt .gnb>.list>li>a::after{
+    content: '';
+    display: block;
+    width: 100%;
+    transform: translateY(10px);
+    height: 2px;
+}
+
+/* GNB메뉴 하위 li에 마우스오버시 아래에 밑줄 생김 */
+.dt .gnb>.list>li a:hover::after{
+    background-color: var(--bg_black);
+}
+/* GNB메뉴 하위 a요소들 공통 세팅 */
+.dt .gnb>.list a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 13px;
+}
+
+/* GNB메뉴 li에 서브메뉴 박스 세팅하기 */
+.dt .gnb li:nth-child(1)::after ~ .dt .gnb li:nth-child(-n+5)::after{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color: var(--bg_beige);
+    margin-top: 12px;
+    box-shadow: 0 0.3125rem 0.625rem 0 rgba(31,31,31,.15);
+}
+
+/* LNB메뉴 겉박스 세팅 */
+.dt .lnb{
+    position: absolute;
+    /* 부모는? GNB메뉴의 #top */
+    z-index: 2;
+    /* z인덱스 줘야 만질 수 있음 */
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    /* height: 500px; */
+    padding: 20px 0;
+    background-color: var(--white);
+    box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.068);
+
+    /* ⭐처음에 LNB 메뉴 안 보이게 숨겨놓기⭐ */
+    display: none;
+}
+
+/* LNB메뉴 하위 .list */
+.dt .lnb>.list{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+/* li들 마우스 포인터 만들기 */
+.dt .lnb>.list>li{
+    cursor: pointer;
+}
+
+
+/* GNB 메뉴 li에 마우스오버시 LNB메뉴 보이기 */
+.dt>.gnb>.list>li:hover .lnb{
+    display: block;
+}
+
+
+/******************************* 하이주얼리, 브랜드 메뉴 시작 *******************************/
+/* 썸네일 이미지 겉박스 */
+.dt .lnb .thumbnail_img{
+    position: relative;
+    /* 부모자격 */
+    display: flex;
+    flex-direction: column;
+    /* 하위 이미지 요소들 비율 유지하며 반응형으로 만들기 */
+    aspect-ratio: 406/460;
+}
+/* 썸네일 하위의 이미지 태그 공통 속성 */
+.dt .lnb .thumbnail_img>img{
+    width: 100%;
+    height: 100%;
+}
+/* 썸네일 이미지 타이틀과 버튼 공통 속성 */
+.dt .lnb .thumbnail_img .tit,
+.dt .lnb .thumbnail_img .btn{
+    position: absolute;
+}
+/* 썸네일 이미지 타이틀 공통 속성 */
+.dt .lnb .thumbnail_img .tit{
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 18px;
+    margin-top: 15px;
+    white-space: nowrap;
+}
+/* 썸네일 이미지 버튼 공통 속성 */
+.dt .lnb .thumbnail_img .btn{
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 30px;
+    background-color: var(--white);
+
+    font-size: 12px;
+    white-space: nowrap;
+}
+/* 썸네일 이미지 타이틀 개별 속성 */
+.dt .lnb.high_jewellery .tit3{
+    color: var(--white);
+}
+.dt .lnb.the_maison img{
+    width: 406px;
+    height: 460px;
+    object-fit: cover;
+}
+.dt .lnb.the_maison .th_img1{
+    object-position: 0 -150px;
+}
+/******************************* 하이주얼리, 브랜드 메뉴 끝 *******************************/
+
+/******************************* 주얼리, 인게이지먼트&웨딩 메뉴 시작 *******************************/
+/* 카테고리별 리스트 버튼 공통 세팅 */
+.dt .list.category .btn{
+    display: block;
+    padding: 6px 10px;
+    border: 1px solid var(--bg_black);
+
+    font-size: 13px;
+}
+/* 추천상품 리스트박스 공통 세팅 */
+.dt .list.recommended{
+    /* margin-top: 50px;
+    padding: 0px 100px; */
+    width: 60%;
+    margin: 0 auto;
+    padding: 40px 20px 20px;
+}
+/* 추천상품 리스트의 li 하위 a요소 세팅 */
+.dt .list.recommended li img{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg_beige);
+    width: 90%;
+    margin: 0 auto;
+}
+/* 추천상품 리스트의 제품 이름 */
+.dt .list.recommended .product_tit{
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+/* .lnb.engagement_and_wedding .category{
+    display: flex;
+} */
+/******************************* 주얼리, 인게이지먼트&웨딩 메뉴 끝 *******************************/
+
+
+/* fixed버전 박스 세팅 */
+.dt.top.fixedBx .svgBx{
+    width: 220px;
+}
+.dt.top.fixedBx{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--white);
+    z-index: 11;
+    box-shadow: inset 0px -0.8px 0px 0px var(--silver);
+
+    /* 🔥일단 숨겨두기🔥 */
+    display: none;
+}
+
+/******************************************* 상단 영역 끝 *******************************************/
+
+
+
+/******************************************* 메인 영역 시작 *******************************************/
+/* 메인 영역 전체 겉박스 세팅 */
+#cont>.cont{
+    position: relative;
+    /* 부모 자격 - top버튼 */
+}
+
+/* top버튼 겉박스 */
+.top_btn_bx{
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border: 1px solid var(--silver);
+    box-shadow: 0px 1px 3px #77777738;
+
+    position: sticky;
+    top: 85%;
+    left: 93%;
+    z-index: 2;
+
+    cursor: pointer;
+}
+/* top버튼 button요소 내부 구글 심볼 개별 세팅 */
+.top_btn_bx>.keyboard_arrow_up{
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/******************************************* 메인 영역 끝 *******************************************/
+
+
+
+/****************************************** 하단 영역 시작 ******************************************/
+/* 하단 영역 겉박스 세팅 */
+#info{
+    background-color: var(--bg_beige);
+    padding-bottom: 10px;
+}
+
+
+
+/* 하단 영역의 로고 개별 세팅 */
+.dt.info>.logo .svgBx{
+    margin: 0 auto;
+    padding: 30px 0 50px;
+}
+
+/* 회사 정보 섹션의 상위카테고리 리스트 공통 세팅 */
+.dt.info>.info_section>.list.category{
+    display: flex;
+    justify-content: center;
+    gap: 5vw;
+    padding-bottom: 30px;
+    
+    font-size: 13px;
+    line-height: 2.3;
+}
+/* 회사 정보 섹션의 상위 카테고리 하위의 헤드라인 세팅 */
+.dt.info .headline{
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+/* info_section의 카테고리 리스트 중 문의 메뉴 하위의 li 세팅 */
+.dt.info .info_section .inquiry .sub_category>li{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+/* 하단 영역의 현재 위치 겉박스 세팅 */
+.dt.info .the_present_region{
+    display: flex;
+    justify-content: right;
+    max-width: 1300px;
+    margin: 0 auto 10px;
+    border-bottom: 1px solid var(--bg_black);
+
+}
+.dt.info .country_and_language_selection{
+    display: flex;
+    align-items: center;
+    margin: 10px;
+
+    /* 버튼 요소 기본값 해제 */
+    border: 0;
+    background-color: transparent;
+}
+/******************************************* 하단 영역 끝 *******************************************/
+
+
+
+/***************************************************
+    [ 모바일 버전 시작 ]
+***************************************************/
+/* 모바일 상단 영역 공통 세팅 */
+header.mob.top{
+    position: relative;
+    /* 부모자격 - .search_container */
+    padding: 15px 10px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.068);
+
+    /* 🔥일단 숨겨두기🔥 */
+    display: none;
+}
+/* 모바일 상단 영역 - 스크롤 내리면 fixed로 바뀌기 */
+header.mob.top.fixed{
+    position: fixed;
+    background-color: var(--white);
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+/* 왼쪽 메뉴 공통 세팅 */
+.mob>.lmenu>.list{
+    display: flex;
+    gap: 5px;
+    
+}
+/* 왼쪽 메뉴를 클릭시 등장하는 검색박스 */
+.search_container{
+    /* display: none; */
+    position: absolute;
+    /* 부모는? header.mob */
+    top: 0;
+    padding: 15px 10px;
+    width: 98%;
+    /* .mob의 가상요소보다 위에 위치위함 */
+    z-index: 1;
+}
+/* 왼쪽 메뉴 검색박스 하위 form요소 */
+.mob_search_form{
+    display: flex;
+    align-items: center;
+}
+/* 검색 input박스 */
+.mob .search_input{
+    /* border: 0; */
+    border-bottom: 1px solid var(--bg_black);
+    width: 100%;
+}
+/* 왼쪽 메뉴를 클릭시 등장하는 검색 박스의 배경*/
+.mob .search.wrap{
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.068);
+    
+    /* 🔥일단 박스 숨겨두기🔥 */
+    overflow: hidden;
+    height: 0px;
+    transition: .4s ease-out;
+}
+.mob .search.wrap.on{
+    height: 54px;
+}
+/* 오른쪽 메뉴 공통 세팅 */
+.mob>.rmenu>.list{
+    display: flex;
+    gap: 5px;
+}
+
+/* 로고 svg 세팅 */
+.mob h1.svgBx{
+    width: 150px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+/* GNB 메뉴 겉박스 세팅 */
+.mob .gnb{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    background-color: var(--white);
+    overflow-y: scroll;
+
+    /* 🔥일단 숨겨두기🔥 */
+    height: 0;
+    transition: .4s ease-out;
+
+    /* lnb메뉴 슬라이딩애니메이션때문에 오른쪽에 나가있어서 가로스크롤 발생함 */
+    overflow-x: hidden;
+}
+/* 클래스 on을 주면 등장함 */
+.mob .gnb.on{
+    /* height: 100%; */
+    height: 100vh;
+    /* ⭐4/27 수정⭐ */
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+
+}
+
+/* GNB 메뉴 하위 a요소들 공통 세팅 */
+.mob>.gnb .list .lnk{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 17px;
+    font-size: 13px;
+}
+/* GNB 메뉴 속 탑 섹션 */
+.mob>.gnb>.top_section{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--bg_black);
+    padding: 15px;
+    height: 50px;
+}
+/* GNB 메뉴 속 상단의 닫기 버튼 */
+.mob>.gnb .close{
+    
+}
+/* GNB 메뉴 속 svg로고 세팅 */
+.mob>.gnb div.svgBx{
+    width: 150px;
+    margin: 0 auto;
+}
+/* GNB 메뉴의 하위 li들 공통 세팅 */
+.mob>.gnb li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mob>.gnb .lists_wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100vh - 81px);
+}
+
+
+
+
+
+
+/* GNB 메뉴 첫번째 리스트(ul) 세팅 */
+.mob>.gnb .entire{
+    /* 높이 강제 부과해서 두번째 리스트 밀어내어 윈도우 아래쪽에 붙게 만들기 */
+    height: calc(100% - 81px);
+    padding: 20px;
+}
+/* GNB 메뉴 첫번째 리스트(ul) 하위 li 속 >/< 버튼 세팅(평소) */
+.mob>.gnb .arrow_forward{
+    display: none;
+}
+.mob>.gnb .arrow_forward.on{
+    display: block;
+}
+/* 닫기(<)버튼 평소 세팅 */
+.mob>.gnb .arrow_back{
+    /* 숨겨져있기 */
+    display: none;
+}
+/* 닫기(<)버튼 .on 주면 보이기 */
+.mob>.gnb .arrow_back.on{
+    display: block;
+}
+
+/* GNB 메뉴 두번째 리스트(ol) 세팅 */
+.mob>.gnb>.lists_wrap>.personal{
+    padding: 20px;
+    background-color: var(--black);
+
+    /* 📢화면 바닥에 붙이기 위한 노력 ㅠㅠ📢 */
+    /* position: absolute; */
+    /* width: 100%; */
+    bottom: 0;
+}
+/* GNB 메뉴 두번째 리스트(ol) 하위 a요소 개별 세팅 */
+.mob>.gnb .l2.personal .lnk{
+    color: var(--white);
+}
+
+
+/****************************************** LNB 메뉴 ******************************************/
+/* LNB 메뉴 겉박스들 공통 세팅 */
+.mob>.gnb .lnb{
+    position: absolute;
+    /* 부모는? #top */
+    width: 100%;
+    height: 0;
+    top: 81px;
+    /* 상단 로고와 닫기 버튼이 있는 섹션 바로 아래쪽에 위치해야하므로 약간 위치조정함*/
+    right: -120%;
+
+    overflow: hidden;
+    /* 숨겨두지 않으면 gnb박스에 스크롤바와 아래쪽 공간이 생김 */
+    z-index: 1;
+    /* gnb박스의 컨텐츠들보다 위에 있어야 함 */
+    background-color: var(--white);
+
+}
+
+/* LNB 메뉴 상단 top_area 겉박스 */
+.mob .top_area{
+    display: flex;
+    align-items: center;
+}
+/* LNB 메뉴 상단 top_area 하위 .lnk 요소*/
+.mob .lnb .top_area .lnk{
+    width: 100%;
+    border-bottom: 1px solid var(--silver);
+}
+/* LNB 메뉴의 카테고리 리스트 박스 세팅 */
+.mob .lnb .list.category{
+    padding: 30px;
+}
+/* LNB 메뉴의 카테고리 리스트 하위 li들 세팅 */
+.mob .lnb .list.category>li{
+    justify-content: center;
+    margin-bottom: 15px;
+}
+/* LNB 메뉴의 카테고리 리스트 하위 썸네일 이미지 박스의 이미지 세팅 (하이주얼리, 브랜드) */
+.mob .lnb .thumbnail_img{
+    width: 460px;
+}
+
+.mob .lnb .thumbnail_img>img{
+    width: 100%;
+    aspect-ratio: 460/215;
+    object-fit: cover;
+}
+/* LNB 메뉴의 카테고리 리스트 하위 썸네일 이미지 박스의 글자 세팅 (하이주얼리, 브랜드) */
+.mob .lnb .thumbnail_img>.tit{
+    display: block;
+    padding: 5px 0;
+    font-size: 13px;
+    color: var(--bg_black);
+}
+
+/* LNB 메뉴의 카테고리 리스트 하위 li들 공통 세팅  */
+.mob .lnb.jewellery .list.category>li,
+.mob .lnb.engagement_and_wedding .list.category>li{
+    justify-content: space-between;
+}
+.mob .lnb.jewellery .list.category .tit,
+.mob .lnb.engagement_and_wedding .list.category .tit{
+    font-size: 13px;
+}
+/* LNB 메뉴의 카테고리 리스트 하위 추천 리스트 겉박스 세팅 */
+.mob .lnb.jewellery .list.recommended,
+.mob .lnb.engagement_and_wedding .list.recommended{
+    width: 50%;
+    margin: 0 auto;
+}
+
+/* LNB 메뉴의 개인서비스 리스트 공통 세팅 */
+.mob>.gnb>.lists_wrap>.entire .personal{
+    padding: 20px;
+    background-color: var(--black);
+}
+
+/* 스와이퍼, 카테고리 리스트를 묶은 제품군섹션 박스 세팅 */
+.mob>.gnb .entire .product_section{
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+    height: calc(100vh - 140px);
+}
+
+/* 추천 제품 스와이퍼 공통 세팅 CSS */
+#top .recommended_Swiper {
+    /* max-width: 300px; */
+    height: auto;
+    margin: 0 auto 30px;
+}
+.recommended_Swiper.swiper-slide {
+    text-align: center;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#top .recommended_Swiper .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* LNB메뉴 중 주얼리, 인게이지먼트&웨딩 메뉴 개별 세팅 */
+.mob>.gnb .entire>li>.lnb.jewellery,
+.mob>.gnb .entire>li>.lnb.engagement_and_wedding{
+    /* height: calc(100% - 81px); */
+}
+
+
+
+/**************************** 모바일 하단 영역 ****************************/
+
+/* 겉박스 세팅 */
+.mob.info{
+    padding: 15px 10px 0;
+
+    /* 🔥처음에 숨기기🔥 */
+    display: none;
+}
+
+/* 회사 정보 섹션의 상위카테고리 리스트 공통 세팅 */
+.mob.info>.info_section>.list.category{
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    font-size: 13px;
+    line-height: 2.3;
+}
+/* 회사 정보 섹션의 상위 카테고리 하위의 헤드라인 세팅 */
+.mob.info .headline{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* 헤드라인 안의 내용더보기(+)아이콘 공통 세팅 */
+.mob.info .headline>.add{
+    font-size: 29px;
+}
+/* 헤드라인 안의 내용줄이기(-)아이콘 공통 세팅 */
+.mob.info .headline>.remove{
+    font-size: 29px;
+
+    /* 🔥평소에는 숨겨두기🔥 */
+    display: none;
+}
+/* info_section의 카테고리 리스트 중 문의 메뉴 하위의 li 세팅 */
+.mob.info .info_section .inquiry .sub_category>li{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+/* 하단 영역의 현재 위치 겉박스 세팅 */
+.mob.info .the_present_region{
+    display: flex;
+    justify-content: right;
+    max-width: 1300px;
+    margin: 0 auto 10px;
+    border-bottom: 1px solid var(--bg_black);
+
+}
+.mob.info .country_and_language_selection{
+    display: flex;
+    align-items: center;
+    margin: 10px;
+
+    /* 버튼 요소 기본값 해제 */
+    border: 0;
+    background-color: transparent;
+}
+
+
+
+
+/***************************************************
+    [ 모바일 버전 끝 ]
+***************************************************/
+
+
+
+
+
+
+
+

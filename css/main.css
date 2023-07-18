@@ -1,0 +1,226 @@
+@charset "utf-8";
+
+/* 불가리 PJ 메인페이지 CSS - main.css */
+
+/* 외부 CSS 머징 */
+@import url(./reset.css);
+@import url(./core.css);
+@import url(./common.css);
+
+
+/******************************************* 메인 영역 *******************************************/
+
+/* [ 공통 세팅 ] */
+/* [1] 모든 섹션의 h2요소 헤드라인 폰트 세팅 */
+.cont h2.headline{
+    font-family: one_mobile_regular;
+    letter-spacing: 2px;
+}
+
+/* 섹션1 */
+/* 섹션1 전체 겉박스 세팅 */
+.section1.main_video{
+    position: relative;
+    /* 부모자격 - .headline */
+    z-index: -2;
+}
+/* 섹션1 전체 화면 동영상 겉박스 세팅 */
+.section1.main_video>.video_bx.wrap{
+    /* position: relative; */
+    aspect-ratio: 16/9;
+    /* 부모 박스에 비율유지를 주고 자식 박스의 가로/세로값을 100p로 주어서 부모 사이즈 기준하여 커지게 만들면 비율 유지가 됨 */
+    width: 100%;
+    overflow: hidden;
+}
+/* 섹션1 전체 화면 동영상 아이프레임 세팅 */
+.section1.main_video #serpenti_main{
+    width: 100%;
+    height: 100%;
+    border: none;
+    
+    filter: brightness(60%);
+}
+
+
+/* 섹션1 동영상의 타이틀과 슬로건 겉박스 세팅 */
+.section1.main_video>.txt{
+    width: 300px;
+    position: absolute;
+    top: 30%;
+    right: 10%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--white);
+    text-shadow: 1px 1px var(--black);
+    /* 양끝 정렬 */
+    text-align: justify;
+}
+/* 섹션1 동영상의 타이틀 세팅 */
+.section1.main_video>.txt>.headline{
+    display: block;
+    letter-spacing: 2px;
+    font-family: one_mobile_regular;
+    font-size: 40px;
+}
+/* 섹션1 동영상의 슬로건 세팅 */
+.section1.main_video>.txt>.catchphrase{
+    display: block;
+    /* 단어 줄바꿈 */
+    /* word-break: keep-all; */
+
+    font-size: 17px;
+}
+
+
+/* 섹션2 */
+/* 섹션2 전체 겉박스 세팅 */
+.section2.recommended_product{
+    margin-top: 200px;
+}
+/* 추천 제품 전체 타이틀 세팅 */
+.section2.recommended_product>.title_wrap>.headline{
+    display: block;
+    padding: 30px;
+    color: var(--bg_black);
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+/* 추천 제품 전체 소개문구 세팅 */
+.section2.recommended_product>.title_wrap .txt{
+    margin: 0 auto;
+    padding: 10px 10px 50px;
+    max-width: 630px;
+    text-align: justify;
+    font-size: 16px;
+}
+/* 추천 제품 스와이퍼 개별 세팅 CSS */
+/* 스와이퍼 겉박스 세팅 */
+.cont>.recommended_product>.recommended_Swiper{
+    /* width: 100%; */
+    max-width: 1300px;
+    height: auto;
+    margin: 0 auto 30px;
+}
+/* 스와이퍼 슬라이드 공통 세팅 */
+.cont>.recommended_product>.recommended_Swiper .swiper-slide {
+    text-align: center;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* outline: 1px solid red; */
+}
+/* 스와이퍼 슬라이드 내부의 img 요소 세팅 */
+.cont>.recommended_product>.recommended_Swiper .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* background-color: var(--bg_beige); */
+}
+
+
+/* 섹션3 */
+/* 섹션3 세르펜티 컬렉션 전체 겉박스 세팅 */
+.section3.serpenti_characteristic{
+    margin: 200px auto;
+}
+/* 섹션3 세르펜티 컬렉션 전체 타이틀 세팅 */
+.section3.serpenti_characteristic>.title_wrap>.headline{
+    padding-bottom: 100px;
+    font-size: 30px;
+    text-align: center;
+}
+/* 섹션3 - characteristics리스트 그리드 박스 세팅 */
+.section3.serpenti_characteristic>.grid{
+    display: grid;
+    max-width: 1300px;
+    margin: 0 auto;
+    /* 가로 그리드 템플릿 */
+    grid-template-columns: repeat(12, 1fr);
+    /* 간격 설정 */
+    grid-column-gap: 20px;
+    grid-row-gap: 50px;
+}
+/* 그리드 박스 내부 모든 img 요소 공통 세팅 */
+.section3.serpenti_characteristic>.characteristics.grid .image>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* 그리드 박스 내부 모든 txt_bx(텍스트요소들의 겉박스) 공통 세팅 */
+.section3.serpenti_characteristic>.characteristics.grid .txt_bx{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 30px;
+}
+/* 그리드 박스 내부 모든 title 요소 공통 세팅 */
+.section3.serpenti_characteristic>.characteristics.grid .txt_bx>.title{
+    font-size: 27px;
+}
+/* 그리드 박스 내부 모든 txt 요소 공통 세팅 */
+.section3.serpenti_characteristic>.characteristics.grid .txt_bx>.txt{
+    font-size: 16px;
+    text-align: justify;
+    line-height: 1.7;
+}
+/* 첫번째 줄 - 이미지 영역 */
+.rw1.image{
+    grid-column: 1/8;
+}
+/* 첫번쨰 줄 - 텍스트 영역 */
+.rw1.txt_bx{
+    grid-column: 8/13;
+}
+/* 두번쨰 줄 - 텍스트 영역 */
+.rw2.txt_bx{
+    grid-column: 1/6;
+}
+/* 두번쨰 줄 - 이미지 영역 */
+.rw2.image{
+    grid-column: 6/13;
+}
+/* 세번째 줄 - 이미지 영역 */
+.rw3.image{
+    grid-column: 1/8;
+}
+/* 세번쨰 줄 - 텍스트 영역 */
+.rw3.txt_bx{
+    grid-column: 8/13;
+}
+
+
+/* 섹션4 */
+.section4.newsletter{
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background: url(../../03.구현소스/images/main_page/dt/sc_characteristic5.jpg) no-repeat 60% 0/cover;
+}
+/* 섹션4 - 뉴스레터 구독 전체 타이틀 세팅 */
+.section4.newsletter>.title_wrap>.headline{
+    font-size: 30px;
+}
+/* 섹션4 - 뉴스레터 구독 버튼 세팅 */
+.section4.newsletter .subscription{
+    padding: 12px 60px;
+    background-color: var(--bg_black);
+    border: 1px solid var(--bg_black);
+
+    font-size: 16px;
+    color: var(--white);
+}
+
+
+
+
+/******************************************* 하단 영역 *******************************************/
