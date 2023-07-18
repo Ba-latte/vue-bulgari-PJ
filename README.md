@@ -56,3 +56,14 @@
   <img src="https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=flat&logo=VisualStudioCode&logoColor=white" />
   <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white" />
 </p>
+
+### 2-2. 배포 환경
+깃허브 페이지를 이용해 배포하였습니다.   
+개발할 때 기준으로 사용한 브라우저는 **Chrome**이나 **Edge**, **웨일** 등에서도 이용 가능합니다.   
+포트폴리오 사이트 주소는 다음과 같습니다.   
+※ 새창 띄우기를 원한다면 ctrl + 클릭해주시기 바랍니다.   
+👉 <a href="https://ba-latte.github.io/vue-bulgari-PJ/" target="_blank">BVLGARI</a>
+
+<br /><br />
+<br /><br />
+
