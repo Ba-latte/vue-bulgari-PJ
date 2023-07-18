@@ -1,0 +1,272 @@
+@charset "utf-8";
+
+/* 불가리 PJ 서브페이지 CSS - sub.css */
+
+/* 외부 CSS 머징 */
+@import url(../reset.css);
+@import url(../core.css);
+@import url(../common.css);
+
+
+/******************************************** 섹션1 메인 동영상 ********************************************/
+/* 동영상 겉박스 */
+.section1.main_video{
+    position: relative;
+    z-index: -2;
+}
+/* 메인 동영상 개별 세팅 */
+.section1.main_video>.video_bx.wrap:has(.bulgari_eden),
+.section1.main_video>.video_bx.wrap:has(.serpenti_74){
+    aspect-ratio: 1920/600;
+    width: 100%;
+    overflow: hidden;
+}
+/* 메인 동영상 요소 개별 세팅 */
+.section1.main_video .bulgari_eden
+{
+    width: 100%;
+    height: 180%;
+    transform: translateY(-25%);
+}
+.section1.main_video .serpenti_74{
+    width: 100%;
+    height: 180%;
+    transform: translateY(-13%);
+}
+/* 텍스트 겉박스 */
+.section1.main_video>.txt {
+    position: static;
+    width: auto;
+    margin-top: 30px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    color: var(--bg_black);
+    text-shadow: none;
+}
+/* 텍스트 헤드라인 */
+.section1.main_video .headline{
+    display: block;
+    font-family: one_mobile_regular;
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+/* 텍스트 */
+.section1.main_video .catchphrase{
+    display: block;
+    font-size: 17px;
+    word-break: keep-all;
+}
+
+/* 섹션2 - 불가리 에덴 그리드 박스 세팅 */
+.section2>.grid {
+    display: grid;
+    max-width: 1300px;
+    margin: 100px auto 50px;
+    /* 가로 그리드 템플릿 */
+    grid-template-columns: repeat(12, 1fr);
+    /* 간격 설정 */
+    grid-column-gap: 20px;
+    grid-row-gap: 50px;
+}
+/* 그리드 박스 내부 모든 img 요소 공통 세팅 */
+.section2>.characteristics.grid .image>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* 그리드 박스 내부 모든 txt_bx(텍스트요소들의 겉박스) 공통 세팅 */
+.section2>.characteristics.grid .txt_bx{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 30px;
+    color: var(--bg_black);
+}
+/* 그리드 박스 내부 모든 title 요소 공통 세팅 */
+.section2>.characteristics.grid .txt_bx>.title{
+    width: 100%;
+    padding: 10px 0;
+    border: 1px solid var(--bg_black);
+    text-align: center;
+
+    font-family: one_mobile_regular;
+    font-size: 27px;
+    font-weight: normal;
+    background-color: var(--white);
+}
+
+/* 그리드 박스 내부 모든 txt 요소 공통 세팅 */
+.section2>.characteristics.grid .txt_bx>.txt{
+    padding: 10px 0;
+    font-size: 16px;
+    text-align: justify;
+    line-height: 1.7;
+}
+/* 첫번째 줄 - 이미지 영역 */
+.rw1.image{
+    grid-column: 1/8;
+}
+/* 첫번쨰 줄 - 텍스트 영역 */
+.rw1.txt_bx{
+    grid-column: 8/13;
+}
+/* 두번쨰 줄 - 텍스트 영역 */
+.rw2.txt_bx{
+    grid-column: 1/6;
+}
+/* 두번쨰 줄 - 이미지 영역 */
+.rw2.image{
+    grid-column: 6/13;
+}
+/* 세번째 줄 - 이미지 영역 */
+.rw3.image{
+    grid-column: 1/8;
+}
+/* 세번쨰 줄 - 텍스트 영역 */
+.rw3.txt_bx{
+    grid-column: 8/13;
+}
+
+
+/* 불가리 에덴 시리즈 작품 소개 배너 */
+/* 제목과 설명 겉박스 */
+.section3.introduction_to_works>.txt_bx{
+    margin: 100px auto 0;
+    padding: 20px;
+    text-align: center;
+}
+/* 제목 */
+.section3.introduction_to_works .headline{
+    font-family: one_mobile_regular;
+    padding-bottom: 10px;
+    font-size: 27px;
+}
+/* 설명 */
+.section3.introduction_to_works .headline+.txt{
+    font-size: 16px;
+}
+/* 스와이퍼 겉박스*/
+.section3.introduction_to_works .intro_Swiper{
+    width: 90%;
+    margin: 0 auto 50px;
+    padding: 20px;
+}
+/* 스와이퍼 개별슬라이드 공통 세팅 */
+.section3.introduction_to_works .intro_Swiper>ol>.swiper-slide{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    /* outline: 1px solid  red; */
+}
+/* 스와이퍼 개별슬라이드 내부 텍스트박스 세팅 */
+.section3.introduction_to_works .swiper-slide>.txt_bx{
+    color: var(--bg_black);
+}
+.section3.introduction_to_works .swiper-slide>.txt_bx>.title{
+    padding: 10px;
+    border: 1px solid var(--bg_black);
+    font-family: one_mobile_regular;
+    font-weight: normal;
+}
+.section3.introduction_to_works .swiper-slide>.txt_bx>.txt{
+    padding: 10px 0 30px;
+    text-align: justify;
+}
+
+
+/* 서브 동영상 섹션 */
+/* 텍스트 겉박스 */
+.section3.sub_video>.txt {
+    margin-top: 30px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+/* 헤드라인 세팅 */
+.section3.sub_video .headline{
+    display: block;
+    font-family: one_mobile_regular;
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+/* 텍스트 */
+.section3.sub_video .catchphrase{
+    display: block;
+    font-size: 17px;
+    word-break: keep-all;
+}
+.sub_video>.video_bx{
+    aspect-ratio: 1920 / 650;
+    padding: 20px 20px 50px;
+}
+.video_bx>.serpenti_change{
+    width: 100%;
+}
+
+
+/* 🌈플렉스 그로우 배너 세팅🌈 */
+/* 겉박스(ol) 세팅 */
+.flex_grow_banner>ol{
+    height: 600px;
+    padding: 20px;
+    display: flex;
+}
+/* 슬라이드(li) 공통 세팅 */
+.flex_grow_banner>ol>li{
+    flex-grow: 1;
+    transition: .4s ease-out;
+}
+/* 슬라이드(li) 개별 세팅 */
+.flex_grow_banner>ol>li:nth-child(1){
+    background: url(../../images/sub_page/serpenti_75years/serpenti_75years1.jpg) no-repeat center/cover;
+}
+.flex_grow_banner>ol>li:nth-child(2){
+    background: url(../../images/sub_page/serpenti_75years/serpenti_75years2.jpg) no-repeat center/cover;
+}
+.flex_grow_banner>ol>li:nth-child(3){
+    background: url(../../images/sub_page/serpenti_75years/serpenti_75years3.jpg) no-repeat center/cover;
+}
+.flex_grow_banner>ol>li:nth-child(4){
+    background: url(../../images/sub_page/serpenti_75years/serpenti_75years4.jpg) no-repeat center/cover;
+}
+/* 슬라이드에 마우스오버시 세팅 */
+.flex_grow_banner>ol>li:hover {
+    flex-grow: 2;
+}
+
+
+/* 여성의 힘 섹션 텍스트 세팅 */
+/* 텍스트 겉박스 */
+.power_of_women>.txt {
+    margin-top: 30px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+/* 헤드라인 세팅 */
+.power_of_women .headline{
+    display: block;
+    font-family: one_mobile_regular;
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+/* 텍스트 */
+.power_of_women .catchphrase{
+    display: block;
+    font-size: 17px;
+    word-break: keep-all;
+}
+/* 여성의 힘 섹션 배너 세팅 */
+.power_of_women>.power_of_women_banner{
+    width: 90%;
+    padding: 20px;
+    margin: 0 auto 50px;
+}
